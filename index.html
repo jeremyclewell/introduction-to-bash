@@ -50,7 +50,8 @@
 # Bash
 ** Just enough to be dangerous **
 
-[Fork me](https://github.com/jeremyclewell/introduction-to-bash) and request a PR for any edits, errata, etc.
+--------------------------------------------
+[Fork me](https://github.com/jeremyclewell/introduction-to-bash)
 
 
                     </script>
@@ -61,7 +62,7 @@
                     <section data-markdown>
                         <script type="text/template">
 ## [Unix](http://upload.wikimedia.org/wikipedia/commons/7/77/Unix_history-simple.svg)
-
+-----------------------
 
 
 * It all started at Bell Labs back in &rsquo;70.
@@ -106,7 +107,9 @@
                 <section>
                     <section data-markdown>
                         <script type="text/template">
-## Common unix directory structures
+### Common unix directory structures
+
+---------------------------------------
 ```bash
                      /[root]
                         |
@@ -123,12 +126,17 @@
 
                     <section data-markdown>
                         <script type="text/template">
-* `/bin` - contains applications and utilities essential to system operation
-* `/usr/bin` - directory for binaries that while important, are not nessesary for system funcitonality.
-* `/sbin`, `/usr/sbin` - contain utilities intented for use by the sysadmin. Usually not needed by regular users/
-* `/etc` - system config files, password DBs, startup scripts, etc...
-* `/tmp` - scratch space for applications and by definition, temporary. Writeable by all users, wiped during a reboot.
-* `/var` - holds dirs that may be variable in size. System log files, databases, even websites are housed here.
+`/bin` - contains applications and utilities essential to system operation
+
+`/usr/bin` - directory for binaries that while important, are not nessesary for system funcitonality.
+
+`/sbin`, `/usr/sbin` - contain utilities intented for use by the sysadmin. Usually not needed by regular users/
+
+`/etc` - system config files, password DBs, startup scripts, etc...
+
+`/tmp` - scratch space for applications and by definition, temporary. Writeable by all users, wiped during a reboot.
+
+`/var` - holds dirs that may be variable in size. System log files, databases, even websites are housed here.
                         </script>
                     </section>
 
@@ -160,7 +168,7 @@ Varies with distribition. Usually `pwd` upon initial login.
                 <section data-markdown>
                     <script type="text/template">
 ## Command structure
-
+--------------------------
 The ways in which we can call a command vary greatly between different applications.
 Example of typical command structure:
 
@@ -184,19 +192,19 @@ $ command -flags/arguments [source_file] [dest_file]
 #### All arguments are **case sensitive!**
 ###### There are often short name and long name flags/arguments that may be passed.
 
-* Longname arguments begin with a double hyphen
+Longname arguments begin with a double hyphen
 
 ```bash
 $ git --help
 ```
 
-* Shortname arguments begin with a single hyphen
+Shortname arguments begin with a single hyphen
 
 ```bash
 ls -l -a -h
 ```
 
-* Shortname arguments are stackable
+Shortname arguments are stackable
 
 ```bash
 ls -lah
@@ -211,39 +219,40 @@ ls -lah
                     <section data-markdown>
                         <script type="text/template">
 ## Getting your bearings
+------------------------
 
-* `whoami`  - will print out your username
-
-* `w` - summary of current activity on the system including what each user is doing
-
-* `uname -a` - Info about operating system, kernel version and hostname of the system you&rsquo;re using.
-
-* `uname` - short-name of the version of unix you&rsquo;re using.
-
-* `pwd` - prints your current working directory
-                        </script>
-                    </section>
-
-                    <section data-markdown>
-                        <script type="text/template">
 ### Moving around
-* `cd [dir]` - move to dir
-* `cd ..` - move up one dir
-* `cd ../../..` - move up three dir
-* `cd` || `cd ~` - move to current users home dir.
-* `cd -` - move to last known pwd.
 
-                        </script>
+`cd [dir]` - move to dir
+
+`cd ..` - move up one dir
+
+`cd ../../..` - move up three dir
+
+`cd` || `cd ~` - move to current users home dir.
+
+`cd -` - move to last known pwd.
+
+
+
+
+
+
+                       </script>
                     </section>
 
 
                     <section data-markdown>
                         <script type="text/template">
 ### Listing directory contents
-* `ls` - list pwd contents
-* `ls [dir]` - list dir contents
-* `ls -lt` - sort with recently modified first
-* `ls -a` - show hidden *dot* files
+
+`ls` - list pwd contents
+
+`ls [dir]` - list dir contents
+
+`ls -lt` - sort with recently modified first
+
+`ls -a` - show hidden *dot* files
                         </script>
                     </section>
 
@@ -266,9 +275,12 @@ Permissions         User       Group        Size    Date-time     Name
                         <script type="text/template">
 ### Deleting directories/files
 ##### All deletions are **permanent**!
-* `rm` - delete files
-* `rm -r` - recursivly delete directories and contents
-* `rm -f` - force delete file|directory with no confirmation
+
+`rm` - delete files
+
+`rm -r` - recursivly delete directories and contents
+
+`rm -f` - force delete file|directory with no confirmation
 
 
                         </script>
@@ -277,11 +289,14 @@ Permissions         User       Group        Size    Date-time     Name
                     <section data-markdown>
                         <script type="text/template">
 ### Managing Directories
-* `mkdir` - make a directory
-* `mkdir -p` - makes a directory structure
-* `rmdir` - delete a directory (if empty)
 
-Again, deletion is **permanent**!
+`mkdir` - make a directory
+
+`rmdir` - delete a directory (if empty)
+
+*Again, deletion is **permanent**!*
+
+`mkdir -p` - makes a directory structure
 
 So...
 
@@ -312,17 +327,34 @@ will create :
 ###### All files/directory names are **case sensitive!**
 ###### It is best practice to use __lowercase filenames__
 
-* `cp` - copy file(s):
+`cp` - copy file(s):
 
 ```bash
 cp [original file] [new file]
 ```
 
-* `mv` - move file(s) - also used for renaming
+`mv` - move file(s) - also used for renaming
 
 ```bash
 mv [original location|name] [new location|name]
 ```
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+### More introspection
+
+`whoami`  - will print out your username
+
+`w` - summary of current activity on the system including what each user is doing
+
+`uname -a` - Info about operating system, kernel version and hostname of the system you&rsquo;re using.
+
+`uname` - short-name of the version of unix you&rsquo;re using.
+
+`pwd` - prints your current working directory
+
                         </script>
                     </section>
 
@@ -333,8 +365,10 @@ mv [original location|name] [new location|name]
                     <section data-markdown>
                         <script type="text/template">
 ## Permissions
-* `[d|-]` - First character in permissions string depicts [d]directory or [-]file
-* `[rwxrwxrwx]` - Three groups of three [Owner|Group|Others] describing the permissions of the file.
+------------------------------
+`[d|-]` - First character in permissions string depicts [d]directory or [-]file
+
+`[rwxrwxrwx]` - Three groups of three [Owner|Group|Others] describing the permissions of the file.
 
 ```bash
                                     rwxr-xr-x
@@ -367,21 +401,25 @@ Permissions         User       Group        Size    Date-time     Name
 
                     <section data-markdown>
                         <script type="text/template">
-## chmod
+### chmod
 
 ####changes file/dir permissions
 
-* `chmod g+w foo.txt` - gives the `g` group write permission
-* `chmod o-wx foo.txt` - removes write and execute permissions for `o` others
-* `chmod -R u=rwx,go=rx bar/` - recursively sets perms for all files in a dir for `u` user, `g` group and `o` others
-* `chmod 755 baz.py` - octal mode...[look it up](http://en.wikipedia.org/wiki/Chmod#Octal_modes).
+`chmod g+w foo.txt` - gives the `g` group write permission
+
+`chmod o-wx foo.txt` - removes write and execute permissions for `o` others
+
+`chmod -R u=rwx,go=rx bar/` - recursively sets perms for all files in a dir for `u` user, `g` group and `o` others
+
+`chmod 755 baz.py` - octal mode...[look it up](http://en.wikipedia.org/wiki/Chmod#Octal_modes).
                         </script>
                     </section>
 
                     <section data-markdown>
                         <script type="text/template">
-## chgrp
-* `chgrp` - change files/dirs group
+### chgrp
+
+`chgrp` - change files/dirs group
 
 ```bash
 $ touch foo.txt
@@ -396,8 +434,10 @@ $ ls -l
 
                     <section data-markdown>
                         <script type="text/template">
-## chown
+### chown
+
 `chown` - change files/dirs owner
+
 **can only be set by root user**
                         </script>
                     </section>
@@ -427,12 +467,13 @@ __Many modern OS&rsquo;s actually disable superuser entirely__
                         <script type="text/template">
     ## Reading / Writing
 
+---------------------------------
 ### Reading from files
 
 * `cat` - 'concatanate'. Pipes files content to stdout...all at once.
 * `more` and `less` - Terminal pagers. Read through files, one page at a time.
   * As the entire file doesn&rsquo;t not need to be loaded at once they are the better option for large files.
-  * Older versions of `more` could only scroll down. `less` has additional feature sets; regexp searching, vim style navigation, etc...
+  * `less` has additional feature sets; regexp searching, vim style navigation, etc...
 * `head` | `tail` - display first and last lines of a file respectively.
 
                         </script>
@@ -441,7 +482,8 @@ __Many modern OS&rsquo;s actually disable superuser entirely__
                     <section data-markdown>
                         <script type="text/template">
 ### Writing to files
-* `cat` - yes...'cat' when called with no args your stdin is pushed to the file...so:
+
+`cat` - yes...'cat' when called with no args your stdin is pushed to the file...so:
 
 
 
@@ -461,8 +503,10 @@ cat > grocerylist.txt [return]
 <section data-markdown>
                         <script type="text/template">
 ### Writing to files...continued
-* `pico` - Pico is a very basic editor.
-* `nano` - Nano is a GNU port of Pico, but features a free software license and a number of optional improvements; syntax hightlighting, regexp searches, auto indentation and mouse support to name a few.
+
+`pico` - Pico is a very basic editor.
+
+`nano` - Nano is a GNU port of Pico, but features a free software license and a number of optional improvements; syntax hightlighting, regexp searches, auto indentation and mouse support to name a few.
 </script>
                     </section>
 
@@ -471,8 +515,10 @@ cat > grocerylist.txt [return]
                     <section data-markdown>
                         <script type="text/template">
 ### Writing to files...continued
-* `vi` | `vim` - Vi is a text editor written for Unix in 1976. [Vim - is Vi (IM)proved](http://www.vim.org/). Emphasis on compositional interaction.
-* `emacs` - written in the 70s, the [GNU Emacs](http://www.gnu.org/software/emacs/) manual describes it as "the extensible, customizable, self-documenting, real-time display editor"
+
+`vi` | `vim` - Vi is a text editor written for Unix in 1976. [Vim - is Vi (IM)proved](http://www.vim.org/). Emphasis on compositional interaction.
+
+`emacs` - written in the 70s, the [GNU Emacs](http://www.gnu.org/software/emacs/) manual describes it as "the extensible, customizable, self-documenting, real-time display editor"
 
                         </script>
                     </section>
@@ -484,20 +530,22 @@ cat > grocerylist.txt [return]
     <script type="text/template">
 ## Finding stuff
 
+---------------------------------
 ### Filenames
-* `locate` - Scours a pathname database for the passed string.
+
+`locate` - Scours a pathname database for the passed string.
 
 ```bash
 $ locate "myfile.txt"
 ```
 
-* `find` - recursively descends the directory tree looking for the passed string.
+`find` - recursively descends the directory tree looking for the passed string.
 
 ```bash
 $ find . -name myfile.txt
 ```
 
-* `mfind` - from the man page, "consults the central metadata store"...this is the same process used by Spotlight. (Mac OSX only)
+`mfind` - from the man page, "consults the central metadata store"...same process used by Spotlight. (Mac OSX)
 
 ```bash
 $ mdfind -name myfile.txt
@@ -509,8 +557,9 @@ $ mdfind -name myfile.txt
         <script type="text/template">
 ### Searching for patterns within files
 
-* `grep` - searches files, or filenames for the passed string using regular expressions.
-    * The name comes from the `g/re/p` command used in the "ed" editor in days of Unix past
+`grep` - searches files, or filenames for the passed string using regular expressions.
+
+The name comes from the `g/re/p` command used in the "ed" editor in days of Unix past
 
 ```bash
 $ grep -r "mycontent" .
@@ -525,8 +574,9 @@ The above command reads as `grep` recursively `-r` for the string `mycontent` st
 <section>
     <section data-markdown>
         <script type="text/template">
-        ### Dialing out
+        ## Dialing out
 
+-------------------------
 `host` - performs a DNS lookup
 
 ```bash
@@ -556,7 +606,7 @@ round-trip min/avg/max/stddev = 32.600/87.678/149.476/47.950 ms
     <section data-markdown>
         <script type="text/template">
 ### SSH (secure shell)
-* `ssh` - logs into a shell on the remote host
+`ssh` - logs into a shell on the remote host
 
 ```bash
 $ ssh user@domain.com
@@ -652,6 +702,8 @@ $ curl -I http://www.google.com
     <section data-markdown>
         <script type="text/template">
 ## When you get lost
+
+-----------------------------
 ### Getting help - not very CONSISTENT...
 
 Many commands accept a help argument or flag, but the syntax varies:
@@ -695,6 +747,8 @@ To see what&rsquo;s going on behind the scenes, turn execution tracing on.
     <section data-markdown>
         <script type="text/template">
 ## Messing with history
+
+---------------------------------
 If you&rsquo;ve already typed a complex command once, bash provides some shortcuts to prevent you from having to type it again.
 
 `history` - display command history
@@ -767,9 +821,9 @@ $ !:gs/jd/js/
 
 <section data-markdown>
                         <script type="text/template">
-#### Q: What is the bang-colon (!:) used in the previous example?
+### Using (!:) as a word designator
 
-#### A: It&rsquo;s a word designator, allowing for complex comand composition using parts of previous commands.
+#### Allowing for complex comand composition using parts of previous commands.
 
 
 `!:0` - will return the last command you executed...but only the program, none of the arguments
@@ -817,8 +871,10 @@ $ build -c client_1.js client_2.js client_3.js client_4.js
                       <section data-markdown>
                         <script type="text/template">
 ### Directing the flow of data
+
  `<<` `<` `|` `>` `>>`
 
+-----------------------------------
 `|` - "Pipes" are used to take one programs output (stdout) and funnel it to the next program&rsquo;s input (stdin).
 
 ```bash
@@ -914,13 +970,15 @@ $ find . -name "*.html" | xargs rm -rf
                     <script type="text/template">
 
 ## Dot Files
+
+--------------------------------
 #### Your personal configuration
 
 *From the bash man pages:*
 
-> When bash is invoked...it first reads and executes commands from... /etc/profile, ~/.bash_profile, ~/.bash_login, and ~/.profile, in that order
+> When bash is invoked...it first reads and executes commands from... /etc/profile, ~/.bash_profile, ~/.bash_login, and ~/.profile, in that order...
 
-> When an interactive shell that is not a login shell is started, bash reads and executes commands from ~/.bashrc
+> When an interactive shell that is not a login shell is started, bash reads and executes commands from ~/.bashrc...
 
                     </script>
                 </section>
