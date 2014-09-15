@@ -44,62 +44,57 @@
 
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
-                
+
                 <section data-markdown>
                     <script type="text/template">
-                    # Bash
-                    ** Just enough to be dangerous **
+# Bash
+** Just enough to be dangerous **
 
-                    I'm totally *NOT* qualified to conduct this brown bag.
                     </script>
-                    <div id="downloads" class="clearfix">
-                      <a href="https://github.com/jeremyclewell/introduction-to-bash/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-                      <a href="https://github.com/jeremyclewell/introduction-to-bash/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-                      <a href="https://github.com/jeremyclewell/introduction-to-bash" id="view-on-github" class="button"><span>View on GitHub</span></a>
-                    </div>
+
                 </section>
-                
+
                 <section>
                     <section data-markdown>
                         <script type="text/template">
-                        ## [Unix](http://upload.wikimedia.org/wikipedia/commons/7/77/Unix_history-simple.svg)
-                        
+## [Unix](http://upload.wikimedia.org/wikipedia/commons/7/77/Unix_history-simple.svg)
 
 
-                        * It all started at Bell Labs back in &rsquo;70.
 
-                        * Developed by it&rsquo;s users for it&rsquo;s users…who were computer scientists.
+* It all started at Bell Labs back in &rsquo;70.
 
-                        * Intended to be used as an aid in research and problem solving.
+* Developed by it&rsquo;s users for it&rsquo;s users…who were computer scientists.
+
+* Intended to be used as an aid in research and problem solving.
                         </script>
                         <aside class="notes">
-                            
+
                         </aside>
                     </section>
 
-                    
+
                     <section data-markdown>
                         <script type="text/template">
-                            ### Unix core principles:
+### Unix core principles:
 
-                            * Do one thing well
-                            * Process lines of text, not binary
-                            * Regular Expressions are powerful, use them
-                            * Default to standard I/O
-                            * Don&rsquo;t be chatty
-                            * Output the same format as was passed to input
-                            * Don&rsquo;t to the heavy lifting
-                            * When you don&rsquo;t have just the right tool, build it!
+* Do one thing well
+* Process lines of text, not binary
+* Regular Expressions are powerful, use them
+* Default to standard I/O
+* Don&rsquo;t be chatty
+* Output the same format as was passed to input
+* Don&rsquo;t to the heavy lifting
+* When you don&rsquo;t have just the right tool, build it!
 
-                        </script> 
+                        </script>
                     </section>
 
                     <section data-markdown>
                         <script type="text/template">
-                        ### What does this give us? 
-                        * Small, focused programs.
-                        * Complex tasks are tackled by chaining these programs together, directing the output of one application into the input of another.
-                        * Unix is terse. When a command executes sucessfully, you&rsquo;ll most likely get no textual response.
+### What does this give us?
+* Small, focused programs.
+* Complex tasks are tackled by chaining these programs together, directing the output of one application into the input of another.
+* Unix is terse. When a command executes successfully, you&rsquo;ll most likely get no textual response.
 
                         </script>
                     </section>
@@ -108,7 +103,7 @@
                 <section>
                     <section data-markdown>
                         <script type="text/template">
-                            ## Common unix directory structures
+## Common unix directory structures
 ```bash
                      /[root]
                         |
@@ -119,52 +114,63 @@
                 -----------------       ---------
                 |       |       |       |       |
                 /home  /bin   /sbin   /log     /www
-```   
+```
                             </script>
                     </section>
 
                     <section data-markdown>
                         <script type="text/template">
-                            * `/bin` - contains applications and utilities essential to system operation
-                            * `/usr/bin` - directory for binaries that while important, are not nessesary for systems funcitonality.
-                            * `/sbin`, `/usr/sbin` - contain utilities intented for use by the sysadmin. Usually not needed by regular users/
-                            * `/etc` - system config files, password DBs startup scripts, etc...
-                            * `/tmp` - scratch space for applications and by definition, temporary. Writeable by all users, wiped during a reboot.
-                            * `/var` - holds dirs that may be variable in size. System log files, databases, even websites are housed here. 
+* `/bin` - contains applications and utilities essential to system operation
+* `/usr/bin` - directory for binaries that while important, are not nessesary for system funcitonality.
+* `/sbin`, `/usr/sbin` - contain utilities intented for use by the sysadmin. Usually not needed by regular users/
+* `/etc` - system config files, password DBs, startup scripts, etc...
+* `/tmp` - scratch space for applications and by definition, temporary. Writeable by all users, wiped during a reboot.
+* `/var` - holds dirs that may be variable in size. System log files, databases, even websites are housed here.
                         </script>
                     </section>
 
                 <section data-markdown>
                     <script type="text/template">
-                    ### Home directory
+### Home directory
 
-                    Varies with distribition. Usually `pwd` upon initial login.
+Varies with distribition. Usually `pwd` upon initial login.
 
-                    *  `/usr/home/[username]`
-                    *  `/home/[username]`
-                    *  `/Users/[username]` *Mac OSX*
+`/usr/home/[username]`
+
+\- or -
+
+`/home/[username]`
+
+\- or -
+
+`/Users/[username]`  - *Mac OSX*
+
                      </script>
                 </section>
 
                 </section>
 
 
-  
+
 
                 <section>
                 <section data-markdown>
                     <script type="text/template">
-                    ## Command stucture
+## Command structure
 
-                    The way we can call a command vary greatly between different applications. 
-                    Example of typical command structure:
+The ways in which we can call a command vary greatly between different applications.
+Example of typical command structure:
 
-                    
-                    `$ command [source_file] [dest_file] -flags/arguments`
 
-                    -or-
+```bash
+$ command [source_file] [dest_file] -flags/arguments
+```
 
-                    `$ command -flags/arguments [source_file] [dest_file]`
+-or-
+
+```bash
+$ command -flags/arguments [source_file] [dest_file]
+```
 
                     </script>
                 </section>
@@ -173,37 +179,43 @@
                         <script type="text/template">
 ### Arguments
 #### All arguments are **case sensitive!**
-###### There are often short name and long name flags/arguments thet may be passed. 
+###### There are often short name and long name flags/arguments that may be passed.
 
-* Longname arguments begin with a double hyphen `--`:
-`$ git --help`
+* Longname arguments begin with a double hyphen
 
-* Shortname arguments begin with a single hyphen `-`
-`ls -l -a -h`
+```bash
+$ git --help
+```
 
-* Shortname arguments are stackable:
-`ls -lah`
+* Shortname arguments begin with a single hyphen
 
+```bash
+ls -l -a -h
+```
 
+* Shortname arguments are stackable
 
+```bash
+ls -lah
+```
                         </script>
                     </section>
 
 
                     </section>
-                
+
                 <section>
                     <section data-markdown>
                         <script type="text/template">
-                        ## Getting your bearings
+## Getting your bearings
 
-* `whoami`  - will print out your username 
+* `whoami`  - will print out your username
 
 * `w` - summary of current activity on the system including what each user is doing
 
-* `uname -a` - Info about operating system, kernal version and hostname of the system you&rsquo;re using.
+* `uname -a` - Info about operating system, kernel version and hostname of the system you&rsquo;re using.
 
-* `uname` - shortname of the version of unix you&rsquo;re using.
+* `uname` - short-name of the version of unix you&rsquo;re using.
 
 * `pwd` - prints your current working directory
                         </script>
@@ -212,8 +224,8 @@
                     <section data-markdown>
                         <script type="text/template">
 ### Moving around
-* `cd [dir]` - move to dir 
-* `cd ..` - move up one dir 
+* `cd [dir]` - move to dir
+* `cd ..` - move up one dir
 * `cd ../../..` - move up three dir
 * `cd` || `cd ~` - move to current users home dir.
 * `cd -` - move to last known pwd.
@@ -221,12 +233,14 @@
                         </script>
                     </section>
 
-                    
+
                     <section data-markdown>
                         <script type="text/template">
 ### Listing directory contents
 * `ls` - list pwd contents
-* `ls [dir]` - list dir contents  
+* `ls [dir]` - list dir contents
+* `ls -lt` - sort with recently modified first
+* `ls -a` - show hidden *dot* files
                         </script>
                     </section>
 
@@ -240,7 +254,7 @@ drwx------+  28 jeremyclewell  staff         952 Mar 19 17:29 Desktop
 drwxr-xr-x    2 root           staff          68 Feb 21 10:20 tmp
 -----------     -------------  -----         --- ------------ -----------
      |                |          |            |        |           |
-Permissions         User       Group        Size    Date-time     Name 
+Permissions         User       Group        Size    Date-time     Name
 ```
                         </script>
                     </section>
@@ -248,11 +262,12 @@ Permissions         User       Group        Size    Date-time     Name
                     <section data-markdown>
                         <script type="text/template">
 ### Deleting directories/files
-* `rm` - delete files **permanent**
-* `rm -r` - delete directories and contents **permanent**
-    * (-r == recursive) 
-* `rm -f` - force delete file|directory with no confirmation **permanent**
-* if you&rsquo;re ever instructed to type `rm -rf /`...please ignore ;)
+##### All deletions are **permanent**!
+* `rm` - delete files
+* `rm -r` - recursivly delete directories and contents
+* `rm -f` - force delete file|directory with no confirmation
+
+
                         </script>
                     </section>
 
@@ -261,16 +276,20 @@ Permissions         User       Group        Size    Date-time     Name
 ### Managing Directories
 * `mkdir` - make a directory
 * `mkdir -p` - makes a directory structure
-* `rmdir` - delete a directory (if empty) **permanent**    
+* `rmdir` - delete a directory (if empty)
+
+Again, deletion is **permanent**!
 
 So...
 
-`$ mkdir -p foo/bar/[baz|biff]`
+```bash
+$ mkdir -p foo/bar/[baz|biff]
+```
 
 will create :
 
-```bash
-                                        /foo 
+```
+                                        /foo
                                           |
                                         /bar
                                           |
@@ -290,24 +309,29 @@ will create :
 ###### All files/directory names are **case sensitive!**
 ###### It is best practice to use __lowercase filenames__
 
-* `cp` - copy file(s)
-* `mv` - move file(s) - also used for remaming
+* `cp` - copy file(s):
 
+```bash
+cp [original file] [new file]
+```
 
+* `mv` - move file(s) - also used for renaming
 
-
+```bash
+mv [original location|name] [new location|name]
+```
                         </script>
                     </section>
 
                 </section>
-                    
+
 
                 <section>
                     <section data-markdown>
                         <script type="text/template">
 ## Permissions
-* `[d|-]` - [d]directory or [-]file
-* `[rwxrwxrwx]` - Three groups of three [Owner|Group|Others] describing the permissions of the file. 
+* `[d|-]` - First character in permissions string depicts [d]directory or [-]file
+* `[rwxrwxrwx]` - Three groups of three [Owner|Group|Others] describing the permissions of the file.
 
 ```bash
                                     rwxr-xr-x
@@ -317,7 +341,7 @@ will create :
                                  |      |      |
                                Owner  Group  Others
 ```
-User has read,write and execution permissions, group and everyone has read and execute permisions. 
+User has read,write and execution permissions, group and everyone has read and execute permisions.
                         </script>
                     </section>
 
@@ -333,30 +357,21 @@ drwx------+  28 jeremyclewell  staff         952 Mar 19 17:29 Desktop
 drwxr-xr-x    2 root           staff          68 Feb 21 10:20 tmp
 -----------     -------------  -----         --- ------------ -----------
      |                |          |            |        |           |
-Permissions         User       Group        Size    Date-time     Name 
+Permissions         User       Group        Size    Date-time     Name
 ```
 </script>
-                    </section>                    
+                    </section>
 
                     <section data-markdown>
                         <script type="text/template">
-## chmod 
+## chmod
 
 ####changes file/dir permissions
 
-* `chmod g+w foo.txt` - gives the group write permission
-* `chmod o-wx foo.txt` - removes write and execute permissions for others
-* `chmod -R u=rwx,go=rx bar/` - recursivly sets perms for all files in a dir
+* `chmod g+w foo.txt` - gives the `g` group write permission
+* `chmod o-wx foo.txt` - removes write and execute permissions for `o` others
+* `chmod -R u=rwx,go=rx bar/` - recursively sets perms for all files in a dir for `u` user, `g` group and `o` others
 * `chmod 755 baz.py` - octal mode...[look it up](http://en.wikipedia.org/wiki/Chmod#Octal_modes).
-    * 7   full    
-    * 6 read and write
-    * 5 read and execute
-    * 4 read only
-    * 3 write and execute
-    * 2 write only
-    * 1 execute only
-    * 0 none
-
                         </script>
                     </section>
 
@@ -388,15 +403,15 @@ $ ls -l
     <script type="text/template">
 ### Superuser/root
 
-* has complete control over the system. 
-    * Topmost permissions over filestructure
+* Has complete control over the system.
+    * Topmost permissions over file structure
     * can create/delete users
 * **Too** powerful!
     * considered bad form to login to a system as superuser/root
 
 __Many modern OS&rsquo;s actually disable superuser entirely__
 
-`sudo` - Allows you to run a command with root user privledges
+`sudo` - will prompt you for your login password and allow you to run a command with root user privileges.
 
     </script>
 </section>
@@ -411,11 +426,11 @@ __Many modern OS&rsquo;s actually disable superuser entirely__
 
 ### Reading from files
 
-* `cat` - 'concatanate'. Pipes files content to stdout...all at once
-* `more` and `less` - Terminal pagers. Read through files, one page at a time. 
-    * As the entire file doesn&rsquo;t not need to be loaded at once they are the better option for large files. 
-    * Older versions of `more` could only scroll down. `less` has additional feature sets; regexp searching, vim style navigation, etc... 
-* `head` | `tail` - display first and last lines of a file respectively
+* `cat` - 'concatanate'. Pipes files content to stdout...all at once.
+* `more` and `less` - Terminal pagers. Read through files, one page at a time.
+  * As the entire file doesn&rsquo;t not need to be loaded at once they are the better option for large files.
+  * Older versions of `more` could only scroll down. `less` has additional feature sets; regexp searching, vim style navigation, etc...
+* `head` | `tail` - display first and last lines of a file respectively.
 
                         </script>
                     </section>
@@ -423,28 +438,28 @@ __Many modern OS&rsquo;s actually disable superuser entirely__
                     <section data-markdown>
                         <script type="text/template">
 ### Writing to files
-* `cat` - yes...'cat' when called with no args your terminal session becomes stdin...so:
+* `cat` - yes...'cat' when called with no args your stdin is pushed to the file...so:
 
 
 
 ```bash
-cat > grocerylist.txt 
+cat > grocerylist.txt [return]
         milk
         granola
         15lbs of hamburger
-        ^D
+        [^d]
 ```
 
 
-...will create a file with the listed contents. Note the `^D` to send an end-of-file message. 
+...will create a file with the listed contents. Note the `^d` to send an end-of-file message.
 </script>
                     </section>
 
 <section data-markdown>
                         <script type="text/template">
 ### Writing to files...continued
-* `pico` - Pico is a very basic editor. 
-* `nano` - Nano is a GNU port of Pico, but features a free software liscence and a number of optional improvements; syntax hightlighting, regexp searches, auto indentation and mouse support to name a few.
+* `pico` - Pico is a very basic editor.
+* `nano` - Nano is a GNU port of Pico, but features a free software license and a number of optional improvements; syntax hightlighting, regexp searches, auto indentation and mouse support to name a few.
 </script>
                     </section>
 
@@ -453,9 +468,8 @@ cat > grocerylist.txt
                     <section data-markdown>
                         <script type="text/template">
 ### Writing to files...continued
-#### - the war - 
-* `vi` | `vim` - Vi is a text editor written for Unix in 1976. Vim - is Vi (IM)proved. Emphasis on compositional interaction.
-* `emacs` - written in the 70s, the GNU Emacs manual describes it as "the extensible, customizable, self-documenting, real-time display editor"
+* `vi` | `vim` - Vi is a text editor written for Unix in 1976. [Vim - is Vi (IM)proved](http://www.vim.org/). Emphasis on compositional interaction.
+* `emacs` - written in the 70s, the [GNU Emacs](http://www.gnu.org/software/emacs/) manual describes it as "the extensible, customizable, self-documenting, real-time display editor"
 
                         </script>
                     </section>
@@ -468,8 +482,8 @@ cat > grocerylist.txt
 ## Finding stuff
 
 ### Filenames
-* `locate` - Scours a pathname database for the passed string. 
-    
+* `locate` - Scours a pathname database for the passed string.
+
 ```bash
 $ locate "myfile.txt"
 ```
@@ -492,12 +506,14 @@ $ mdfind -name myfile.txt
         <script type="text/template">
 ### Searching for patterns within files
 
-* `grep` - searches files, or filenames for the passed string using regular espressions.
+* `grep` - searches files, or filenames for the passed string using regular expressions.
     * The name comes from the `g/re/p` command used in the "ed" editor in days of Unix past
 
 ```bash
-$ grep -r "myfile.txt" .
+$ grep -r "mycontent" .
 ```
+
+The above command reads as `grep` recursively `-r` for the string `mycontent` starting at the present working directory `.`
     </script>
 </section>
 
@@ -508,42 +524,140 @@ $ grep -r "myfile.txt" .
         <script type="text/template">
         ### Dialing out
 
-* `host` - performs a DNS lookup
-* `ping` - elicits a response from a host
-* `traceroute` - effectively, a ping response from each gateway passed through on the path to some host.
-* `ssh` - logs into a remote host
+`host` - performs a DNS lookup
+
+```bash
+$ host www.apple.com
+www.apple.com is an alias for www.isg-apple.com.akadns.net.
+www.isg-apple.com.akadns.net has address 23.64.107.144
+www.isg-apple.com.akadns.net is an alias for www.apple.com.edgekey.net.
+www.isg-apple.com.akadns.net is an alias for www.apple.com.edgekey.net.
+```
+
+`ping` - elicits a response from a host keeping track of packets sent/dropped and time to recieve
+
+```bash
+$ ping www.apple.com
+PING www.isg-apple.com.akadns.net (23.64.107.144): 56 data bytes
+64 bytes from 23.64.107.144: icmp_seq=0 ttl=55 time=32.600 ms
+64 bytes from 23.64.107.144: icmp_seq=1 ttl=55 time=149.476 ms
+--- www.isg-apple.com.akadns.net ping statistics ---
+6 packets transmitted, 3 packets received, 50.0% packet loss
+round-trip min/avg/max/stddev = 32.600/87.678/149.476/47.950 ms
+```
+
 
         </script>
     </section>
 
     <section data-markdown>
         <script type="text/template">
-        ### Moving stuff between systems
+### SSH (secure shell)
+* `ssh` - logs into a shell on the remote host
 
-        * `ftp` - transfer files over the FTP protocol
-        * `sftp` - like `ftp`, but uses ssh
-        * `scp` - secure copying of files over network with ssh
-        * `rsync` - transfers the difference of two file sets over the network, 'syncing' them
-        * `wget` - download files from the internet
-        * `curl` - transfers files to and from remote servers...supports a wide range of protocols
+```bash
+$ ssh user@domain.com
+password: ********
+Last login: Fri Sep 12 17:32:36 2014 from [last connection origin]
 
+# Usually some sort of welcome message
+# or usage guidlines are piped out here.
+
+[user@domain.com ~]#
+```
+        </script>
+    </section>
+
+    <section data-markdown>
+        <script type="text/template">
+### Moving stuff between systems
+
+`ftp` - transfer files over the FTP protocol
+
+`sftp` - like `ftp`, but uses ssh
+
+```bash
+ $ [s]ftp [IP or hostname]
+ ftp> pwd
+   /home
+ ftp> ls
+   -rw-r--r--    1 user     staff    0 Mar 11 15:56 index.html
+   drwxr-xr-x    2 root     staff   68 Feb 21 10:20 mydir
+ ftp> get index.html my.html # Use get to retrieve files
+   Fetching /home/index.html to my.html
+   /home/index.html       100% 2886     1.4KB/s   00:02
+ ftp> cd mydir
+ ftp> mget *.html # use the 'm' prefix to operate on multiple files
+   Fetching /home/mydir/foo.html to foo.html
+   /home/mydir/foo.html   100%   15KB   7.3KB/s   00:02
+   Fetching /home/mydir/bar.html to bar.html
+   /home/mydir/bar.html   100% 2340     2.3KB/s   00:01
+```
+        </script>
+    </section>
+
+    <section data-markdown>
+        <script type="text/template">
+`scp` - secure copying of files over network with ssh
+
+```bash
+# Copy remote file to local
+$ scp username@remote_host.com:index.html /some/local/directory
+
+# Copy local file to remote
+$ scp index.html username@remote_host.com:/some/remote/directory
+
+# Use [-r] recursive to copy entire directories
+$ scp -r /Desktop username@remote_host.com:/home
+
+# Copy file from remote_1 to remote_2
+$ scp username_1@remote_host_1.com:/home/foo.txt username_2@remote_host_2:/home
+```
+        </script>
+    </section>
+
+    <section data-markdown>
+        <script type="text/template">
+
+`curl` - transfers files to and from remote servers...supports a wide range of protocols
+
+```bash
+# Pipe response to local file
+$ curl http://www.google.com > google_index.html
+% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                               Dload  Upload   Total   Spent    Left  Speed
+100 18710    0 18710    0     0  30945      0 --:--:-- --:--:-- --:--:-- 30925
+
+# Pull just request headers
+$ curl -I http://www.google.com
+  HTTP/1.1 200 OK
+  Date: Mon, 15 Sep 2014 16:09:06 GMT
+  Expires: -1
+  Cache-Control: private, max-age=0
+  Content-Type: text/html; charset=ISO-8859-1
+  Server: gws
+  X-Frame-Options: SAMEORIGIN
+  Transfer-Encoding: chunked
+```
         </script>
     </section>
 
 </section>
 
 <section>
-    
+
     <section data-markdown>
         <script type="text/template">
-        ## When you get lost
-        ### Getting help - not very consistant...
+## When you get lost
+### Getting help - not very CONSISTENT...
 
 Many commands accept a help argument or flag, but the syntax varies:
 
-* `[command] --help`
-* `[command] -h`
-* `[command] help`
+`[command] --help`
+
+`[command] -h`
+
+`[command] help`
 
         </script>
     </section>
@@ -555,7 +669,7 @@ Most commands have a Man[ual]...often termed the "Man pages"
 
 `man [command]`
 
-The `apropos` command searches short descriptions of system commands...if you&rsquo;re *really* lost start here.
+The `apropos` command searches short descriptions of system commands...if you&rsquo;re not quite sure what you&rsquo;re looking for, start here.
 
 `apropos [keyword]`
 
@@ -563,12 +677,13 @@ The `apropos` command searches short descriptions of system commands...if you&rs
     </section>
     <section data-markdown>
         <script type="text/template">
-        ### Tracing out commands
+### Tracing out commands
 
-        To see what&rsquo;s going on behind the scenes, turn execution tracing on.
+To see what&rsquo;s going on behind the scenes, turn execution tracing on.
 
-* `set -x` - turn execution tracing on
-* `set +x` - turn execution tracing ff
+`set -x` - turn execution tracing on
+
+`set +x` - turn execution tracing off
 
         </script>
     </section>
@@ -577,20 +692,23 @@ The `apropos` command searches short descriptions of system commands...if you&rs
     <section data-markdown>
         <script type="text/template">
 ## Messing with history
+If you&rsquo;ve already typed a complex command once, bash provides some shortcuts to prevent you from having to type it again.
 
-* `history` - display command history
+`history` - display command history
 
-* `!N` - execute the command found in you history at [N]
-* `!-N` - execute the command [N] steps back in history
+`!N` - execute the command found in you history at [N]
+
+`!-N` - execute the command [N] steps back in history
 
         </script>
     </section>
     <section data-markdown>
         <script type="text/template">
-        ### Messing with history...cont.
-* `![string]` - search back in history and execute the first command that begins with [string]
+### Messing with history...cont.
 
-* `^r` - an interactive, reverse search of your command history...it&rsquo;s awesome...
+`![string]` - search back in history and execute the first command that begins with [string]
+
+`^r` - an interactive, reverse search of your command history...it&rsquo;s awesome...
         </script>
     </section>
 
@@ -598,15 +716,15 @@ The `apropos` command searches short descriptions of system commands...if you&rs
                         <script type="text/template">
 ### Messing with history...cont.
 `!!` - Repeat last command
+
 Useful in the case where you need to repeat a long command, prefaced or followed by another command, i.e.,
 
 
 ```bash
 $ make me a sandwich
-bash: make me a sandwich: Permission denied
+   make me a sandwich: Permission denied
 $ sudo !!
-bash: well okay then.
-```  
+```
     </script>
 </section>
 
@@ -614,12 +732,12 @@ bash: well okay then.
 
 <section data-markdown>
                         <script type="text/template">
-                        ### Messing with history...cont.
-                        `^search^replace^` - execute last command, but replacing the first search search string found with the replacement string. 
+### Messing with history...cont.
+`^search^replace^` - execute last command, but replacing the first search search string found with the replacement string.
 
-```bash 
-$ build -c macys.jd
-> No files found for "macys.jd".
+```bash
+$ build -c client.jd
+   No files found for "client.jd".
 $ ^jd^js^
 ```
 
@@ -630,16 +748,14 @@ $ ^jd^js^
 <section data-markdown>
                         <script type="text/template">
 ### Messing with history...cont.
-...but what if you want to replace more than one instance of 
-that search string? 
-
-Well, it gets a bit more complex:
-
+...but what if you want to replace more than one instance of
+that search string?
 
 ```
-$ build -c garnethill.jd grandinroad.jd frontgate.jd
-> No files found for "garnethill.jd".
+$ build -c client_1.jd client_2.jd client_3.jd
+   No files found for "client_1.jd".
 $ !:gs/jd/js/
+   build -c client_1.js client_2.js client_3.js
 ```
 
                         </script>
@@ -648,48 +764,45 @@ $ !:gs/jd/js/
 
 <section data-markdown>
                         <script type="text/template">
-### So, what&rsquo;s up with the bang-colon?
+#### Q: What is the bang-colon (!:) used in the previous example?
 
-...well, it&rsquo;s a word designator. 
+#### A: It&rsquo;s a word designator, allowing for complex comand composition using parts of previous commands.
 
 
-* `!:0` - will return the last command you executed...but only the program, none of the arguments
+`!:0` - will return the last command you executed...but only the program, none of the arguments
 
-* `!:1, !:2, !:3...` - will return the first argument, and each subsequent argument at the specified index.
+`!:1, !:2, !:3...` - will return the first argument, and each subsequent argument at the specified index.
 
-* `!:2-5` - will return the arguments in the ranged listed.
+`!:2-5` - will return the arguments in the ranged listed.
 
                         </script>
                     </section>
 
                 <section data-markdown>
                         <script type="text/template">
-                        ### How might these be used?
+### How might these be used?
+if `history` looks like:
 
-                        if `history` looks like:
-
-                        ``` bash
-43  git add frontend/src/script/custom/
-44  git commit -m 'brownells - add tabbed endcap op'
-45  git co master
-46  git pull monetate master
-47  git co cornerstone-fix_top_category_page_typing
-48  check frontgate.js improvementscatalog.js grandinroad.js ballarddesigns.js
-49  history
+``` bash
+45  git co -b client-feature_name
+46  git add /dir/somefile.js
+47  git commit -m 'client - some feature'
+48  check client_1.js client_2.js client_3.js client4.js
+49  gjslint /dir/somefile.js
   ```
 
   then both:
 
-* `!48:s/check-deps/build -c/`
+`!48:s/check/build -c/`
 
-  or 
+  or
 
-* `build -c !-2:1-4`
+`build -c !-2:1-4`
 
 will return:
 
 ```bash
-$ build -c frontgate.js improvementscatalog.js grandinroad.js ballarddesigns.js
+$ build -c client_1.js client_2.js client_3.js client_4.js
 ```
 
                         </script>
@@ -701,24 +814,93 @@ $ build -c frontgate.js improvementscatalog.js grandinroad.js ballarddesigns.js
                       <section data-markdown>
                         <script type="text/template">
 ### Directing the flow of data
-#### `<`, `|`, `>` and `>>`
+ `<<` `<` `|` `>` `>>`
 
-* Pipes `|` are used to take one programs output (stdout) and funnel it to the next program&rsquo;s input (stdin).
+`|` - "Pipes" are used to take one programs output (stdout) and funnel it to the next program&rsquo;s input (stdin).
 
-* File input `<` is used to read a file into a program&rsquo;s input (stdin).
+```bash
+# Count the number of HTML files in pwd
+$ ls -l | grep -i "html$" | wc -l
+  440
+```
 
-* Write to file `>` is used to write a program&rsquo;s output (stdout) into a file (destructivly).
+`>` - "Write to file" is used to write a program&rsquo;s output (stdout) into a file (destructively).
 
-* Append to file `>>` is used to append a program&rsquo;s output (stdout) to the end of a file
+```bash
+# Print the names of all HTML files out to a document
+$ ls -l | grep -i "html$" > html_file_list.txt
+```
+                        </script>
+</section>
+
+<section data-markdown>
+    <script type="text/template">
+`<` - "File input" is used to read a file into a program&rsquo;s input (stdin).
+
+```bash
+# Count the number of lines in a file
+$ wc -l < html_file_list.txt
+  440
+```
+
+`>>` - "Append to file" is used to append a program&rsquo;s output (stdout) to the end of a file
+
+```bash
+# Append logs to a file
+$ log_function >> /var/logs
+```
 
                         </script>
                     </section>
 
                     <section data-markdown>
                         <script type="text/template">
+
+`<<` - A "here document" is used to redirect standard input, within the "EOF" delimiters to the program provided. Any string may be used as a delimiter
+
+```bash
+$ wc -l << EOF
+        This is an example
+        of a here document.
+        The contents within
+        the delimiters are
+        treated as though
+        they were a normal file.
+EOF
+  6
+```
+
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+#### Tools that work well with piping:
 `echo` - write arguments to the standard output
-`sed` - 'Stream editor', modifies standard input
-`xargs` - constructs an argument list.
+
+```bash
+$ echo "The question to life the universe and everything" > answer.txt
+$ cat answer.txt
+  The question to life the universe and everything
+```
+
+`sed` - 'Stream editor', modifies standard input on the fly
+
+```bash
+$ sed 's/question/answer/' answer.txt > forty_two.txt
+$ cat forty_two.txt
+  The answer to life the universe and everything
+```
+
+
+`xargs` - Executes `echo` over each input recieved from stdin
+
+```bash
+# First find all html files in a directory tree
+# then pass each file to the rm program.
+# To have xargs prompt you before execution use the `-p` flag.
+$ find . -name "*.html" | xargs rm -rf
+```
                         </script>
                     </section>
 </section>
@@ -729,86 +911,52 @@ $ build -c frontgate.js improvementscatalog.js grandinroad.js ballarddesigns.js
                     <script type="text/template">
 
 ## Dot Files
-### Your personal configuration
+#### Your personal configuration
 
-* `.bashrc` - loaded for interactive and login/scripts...keep it fast
-* `.bash_profile` - loaded for interactive
-* `.ssh/config` - ssh config
-* `.vimrc` - vim config
+*From the bash man pages:*
 
-Why the leading period?    
-The os will hide any file beginning with a period from the GUI interface.
+> When bash is invoked...it first reads and executes commands from... /etc/profile, ~/.bash_profile, ~/.bash_login, and ~/.profile, in that order
+
+> When an interactive shell that is not a login shell is started, bash reads and executes commands from ~/.bashrc
 
                     </script>
                 </section>
-
         <section data-markdown>
                         <script type="text/template">
-### Sample .bash_profile
+"Dot files" allow us to bootstrap personal configurations for terminal sessions and various other applications.
 
+Here are some more common examples:
+
+`~/.bash_profile` - loaded for interactive (Mac OSX all sessions are interactive)
+
+`~/.ssh/config` - ssh config
+
+`~/.vimrc` - vim config
+
+Why the leading period?
+The OS will hide any file beginning with a period from the GUI interface.
+
+                    </script>
+                </section>
+        <section data-markdown>
+                        <script type="text/template">
+#### Components often found in a `~/.bash_profile`
+
+`alias` - defines a callable reference to something else
 
 ```bash
-# Pull in bashrc
-source $HOME/bin/dotfiles/bashrc
+alias [NAME]=[VALUE] # no spaces around `=`
+```
 
-# Basic path munging
-export PATH=/opt/local/bin:/opt/local/sbin:$HOME/bin:/usr/local/git/bin:$PATH
-export PATH=$PATH:~/git/monetate-frontend/frontend/bin
+`export` - exports a variable
 
-# Set up Devbox var
-export DEVBOX=dev-jclewell-1.monetate.org
+```bash
+export [NAME]=[VALUE]` # To later reference use the `$` prefix
+```
 
-# Python path
-export PYTHONPATH=/Library/Python/2.7/site-packages/:$PYTHONPATH
-
-# Monetate AWS creds
-export AWS_CREDENTIAL_FILE=$HOME/.aws/credentials/dev-jclewell/cred-jclewell.txt
-
-# Setup tab completion  for diff active
-complete -F __monetate_script_completion diff_active.py
-
-# Git completion
-source /usr/local/git/contrib/completion/git-completion.bash
-
-# Monetate deployment tools
-source $HOME/git/monetate-frontend/frontend/tools/bash/deployment.bash
-
-# Monetate convenience aliases
-alias gpmm="git pull monetate master"
-alias mf="cd ~/git/monetate-frontend"
-alias ms="cd ~/git/monetate-server"
-
-# Gimme a fancy prompt
-PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
-alias tmux="TERM=screen-256color-bce tmux"
-
-# Google CLI junk
-alias today="google calendar today"
-alias gedit="google docs edit" # ...not your grandpas gedit ;)
-
-# Set up my todo.txt list
-alias t="todo.sh -d ~/.todo.cfg"
-complete -F _todo t
-source /usr/local/etc/bash_completion.d/todo_completion.bash
-
-# Simple convenience function for swapping devboxes
-function devset() {
-    export DEVBOX="dev-jclewell-$@.monetate.org"
-    echo "Devbox now set to:"
-    echo $DEVBOX
-}
-
-# Alias Hub
-alias git=hub
-
-# Vim style input mode
-set -o vi
-
-# Pull in 'Z'
-. $HOME/bin/z/z.sh
-
-# Use vim by default
-export EDITOR=/usr/bin/vim
+`source` | `.` - loads and executes a file
+```bash
+source [FILENAME]
 ```
 
                         </script>
@@ -816,16 +964,62 @@ export EDITOR=/usr/bin/vim
 
                     <section data-markdown>
                         <script type="text/template">
-### Takeaways
+#### Sample `~/.bash_profile`
 
-* `alias` - defines a callable reference to something else
-    * `alias [NAME]=[VALUE]` - no spaces around `=`
-* `export` - exports a variable [NAME]=[VALUE]
-    * `export [NAME]=[VALUE]` - no spaces around `=`
-    * To later reference use the `$` prefix
-* `source` | `.` - loads and executes a file
-    * `source [FILENAME]`
 
+```bash
+# Pull in bashrc
+if [ -f ~/.bashrc ]; then
+source ~/.bashrc
+fi
+
+# Basic path munging
+# The 'PATH' variable holds a list of locations that may contain programs.
+export PATH=/opt/local/bin:/opt/local/sbin:$HOME/bin:/usr/local/git/bin:$PATH
+
+# Python path
+# The PYTHONPATH is of similar functionality to the shell PATH
+export PYTHONPATH=/Library/Python/2.7/site-packages/:$PYTHONPATH
+
+# Setup tab completion for custom script
+complete -F __script_completion custom_script.py
+
+# Git completion
+source /usr/local/git/contrib/completion/git-completion.bash
+
+# Convenience aliases
+alias gpmm="git pull monetate master"
+alias mf="cd ~/git/monetate-frontend"
+alias ms="cd ~/git/monetate-server"
+
+# Gimme a fancy prompt
+PS1="\n\u:\w$(__git_ps1 '(%s)') \n\[$CYAN\]→\[$NO_COLOR\]"
+
+# Google CLI aliases
+# @see code.google.com/p/googlecl/
+alias today="google calendar today"
+alias googedit="google docs edit"
+
+# Set up my todo.txt list
+# @see http://todotxt.com/
+alias t="todo.sh -d ~/.todo.cfg"
+complete -F _todo t
+source /usr/local/etc/bash_completion.d/todo_completion.bash
+
+# Pull in 'Z'
+# @see https://github.com/rupa/z
+. $HOME/bin/z/z.sh
+
+# Alias Hub
+# @see https://hub.github.com/
+alias git=hub
+
+# Vim style input mode
+set -o vi
+
+# Use vim by default
+export EDITOR=/usr/bin/vim
+```
 
 
                         </script>
@@ -850,7 +1044,7 @@ export EDITOR=/usr/bin/vim
                         </script>
                     </section>
 
-              
+
 
 
 
